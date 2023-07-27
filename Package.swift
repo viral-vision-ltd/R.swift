@@ -14,6 +14,7 @@ let package = Package(
         .library(name: "RswiftLibrary", targets: ["RswiftResources"]),
         .plugin(name: "RswiftGenerateInternalResources", targets: ["RswiftGenerateInternalResources"]),
         .plugin(name: "RswiftGeneratePublicResources", targets: ["RswiftGeneratePublicResources"]),
+        .plugin(name: "RswiftGeneratePublicImageStringResources", targets: ["RswiftGeneratePublicImageStringResources"]),
         .plugin(name: "RswiftGenerateResourcesCommand", targets: ["RswiftGenerateResourcesCommand"]),
         .plugin(name: "RswiftModifyXcodePackages", targets: ["RswiftModifyXcodePackages"]),
     ],
