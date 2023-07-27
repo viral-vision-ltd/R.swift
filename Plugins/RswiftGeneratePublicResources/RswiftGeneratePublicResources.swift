@@ -39,6 +39,7 @@ struct RswiftGeneratePublicResources: BuildToolPlugin {
                     "--input-type", "input-files",
                     "--bundle-source", bundleSource,
                     "--access-level", "public",
+                    "--generators", "image,string"
                 ] + inputFilesArguments,
                 outputFiles: [rswiftPath]
             ),
