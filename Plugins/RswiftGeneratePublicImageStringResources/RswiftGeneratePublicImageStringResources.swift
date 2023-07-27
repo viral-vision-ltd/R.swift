@@ -1,5 +1,5 @@
 //
-//  RswiftGeneratePublicResources.swift
+//  RswiftGeneratePublicImageStringResources.swift
 //  
 //
 //  Created by Tom Lokhorst on 2022-10-19.
@@ -9,7 +9,7 @@ import Foundation
 import PackagePlugin
 
 @main
-struct RswiftGeneratePublicResources: BuildToolPlugin {
+struct RswiftGeneratePublicImageStringResources: BuildToolPlugin {
     func createBuildCommands(context: PluginContext, target: Target) async throws -> [Command] {
         guard let target = target as? SourceModuleTarget else { return [] }
 
@@ -38,7 +38,8 @@ struct RswiftGeneratePublicResources: BuildToolPlugin {
                     "generate", rswiftPath.string,
                     "--input-type", "input-files",
                     "--bundle-source", bundleSource,
-                    "--access-level", "public"
+                    "--access-level", "public",
+                    "--generators", "image,string"
                 ] + inputFilesArguments,
                 outputFiles: [rswiftPath]
             ),
@@ -49,7 +50,7 @@ struct RswiftGeneratePublicResources: BuildToolPlugin {
 #if canImport(XcodeProjectPlugin)
 import XcodeProjectPlugin
 
-extension RswiftGeneratePublicResources: XcodeBuildToolPlugin {
+extension RswiftGeneratePublicImageStringResources: XcodeBuildToolPlugin {
     func createBuildCommands(context: XcodePluginContext, target: XcodeTarget) throws -> [Command] {
 
         let resourcesDirectoryPath = context.pluginWorkDirectory

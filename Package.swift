@@ -38,6 +38,7 @@ let package = Package(
 
         .plugin(name: "RswiftGenerateInternalResources", capability: .buildTool(), dependencies: ["rswift"]),
         .plugin(name: "RswiftGeneratePublicResources", capability: .buildTool(), dependencies: ["rswift"]),
+        .plugin(name: "RswiftGeneratePublicImageStringResources", capability: .buildTool(), dependencies: ["rswift"]),
         .plugin(
             name: "RswiftGenerateResourcesCommand",
             capability: .command(
